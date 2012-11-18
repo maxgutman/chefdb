@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[[RESTAURANT NAME]]: ChefsDB.com</title>
+    <link rel="stylesheet" href="static/css/chefdb.css">
+    <style type="text/css">
+        body {
+            background: url(static/images/restaurant1.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        #header-logo2{
+            margin-top:4px;
+            background:url('static/images/chefdb2.png') no-repeat ; width:100px;height:32px; text-indent:-9999px;float:left;
+        }
+    </style>
+</head>     
+<body>
+    <header id="global-header" style="background-color: #232323">
+        <div id="header-content">
+            <div><a id="header-logo2" href="#">Chefs DB</a></div>
+            <div style="width: 1px; top: 8px; left: 108px; position: absolute; height:25px; background-color: #232323"></div>
+            <div style="width: 1px; top: 8px; left: 108px; position: absolute; height:25px; background-color: rgba(255, 255, 255, 0.15);"></div>
+            <div><a id="header-subtitle" data-log-area="Navigation" href="#">[[RESTAURANT CITY]]</a></div>
+            <ul id="nav">
+                <li class="nav-item-first">
+                    <form id="search-form" method="get" action="">
+                        <input id="search-input" class="search-box ui-autocomplete-input" type="text" placeholder="search" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true" value="" style="width: 300px ">
+                    </form>
+                </li>
+                <li class="nav-item-last">
+                    <div style="width:1px; top:8px; position:absolute; height:25px; background-color:rgba(255, 255, 255, 0.15);"></div>
+                    <a class="nav-link last-link" href="#" data-log-area="Navigation" data-log-message="Profile">
+                        <img id="user-mugshot" src="[[REGISTERED USER_LOGO]]" style="width: 16px; height: 16px">
+                        <span id="header-name-link">[[REGISTERED USER_NAME]]</span>
+                        <div id="header-arrow"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div id="pagecontent" class="clear clearfix" style="background-color: #ededed; padding: 10px;">
+        <div id="profile-reminder-bar" class="user-edu-banner" style="height: 50px; margin-bottom: 15px; color: white; font-size: 16px; padding: 0px;">
+            <div style="float: left; margin-top: 13px; margin-left: 98px; font-family: Arial;">Success! You've marked this restaurant as a favorite <span id="num-collections-banner"></span> on your profile.</div><a href="#" class="black-button-small" style="margin-left: 20px; margin-top: 11px; float: left;" data-log-area="Activity Details" data-log-message="Post Bookmark Reminder Button">Show your collection »</a>
+        </div>
+        <div id="details-left">
+            <header id="details-title" class="bigtext">
+                <h1 class="bigtext-line0">{{ restaurant.name }}</h1>
+                <h2>Chef: {{ "%s %s" % (chef.first_name, chef.last_name) }}</h2>
+            </header>
+            <img id="details-image" src="[[RESTAURANT IMAGE]]">
+            <div class="module1">
+                <div class="module1-internal">
+                    <div class="module1-content clearfix">
+                        <section id="details-blurb">
+                            <article>
+                                <div id="details-intro">
+                                    <p>
+                                        {{ restaurant.description }}
+                                        <a class="details-more-link"  href="#">(more)</a>
+                                    </p>
+                                </div>
+
+                            </article>
+                        </section>
+                        <section id="details-insider">
+                            <header>{{ "%s %s" % (chef.first_name, chef.last_name) }}</header>
+
+                                <article class="clearfix" style="text-align: center;">
+                                        <img src="[[CHEF IMAGE URL]]" width="200px">
+                                </article>
+
+                                <article>
+                                    <div id="details-body">
+                                        {{ chef.biography }}
+                                    </div>
+                                </article>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="details-right">
+            <div id="details-right-first-block">
+                <div class="light-button-med" style="margin: 6px; padding: 10px; height: 40px; font-size: 16px; font-family: HelveticaNeue-Light">
+                    <img id="bm-icon" src="static/images/ol_activity_bookmarked_icon.png">
+                    <p>Mark as favorite</p>
+                </div>
+                <div id="details-donethis" class="show-if-done" >
+                    <div class="details-bookmarked-text">
+                        <div id="details-green-check"></div>
+                        <p>You've been here!</p>
+                        <div id="details-done-area">
+                             <div id="details-share-portion">
+                                 <a id="details-share-button" class="light-button-med" data-activity-id="302" href="#" style="padding: 0px 12px 0px 0px;"><div class="share-button-icon" style="vertical-align: -1px; margin-left: 12px; margin-right: 6px; display: inline-block;"></div>Share</a>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+                <div style="height: 1px; background: #CCC;"></div>
+                <div id="details-share-choices" style="display: none;">
+                    <div id="share-facebook-ad" class="social-button" style="margin-top:10px;" data-activity-id="302"></div>
+                    <div id="share-twitter-ad" class="social-button" style="margin-top:10px;" data-activity-id="302"></div>
+                    <div id="share-email-ad" class="social-button" style="margin-top:10px;" data-activity-id="302"></div>
+                </div>
+                <div id="details-right-bookmarked-by"></div>
+                <div id="details-right-loved-by">
+                    <section class="user-grid">
+                        <div>
+                            <a href="#">
+                            <strong>500 people</a> have liked this restaurant</strong>
+                        </div>
+                        <div class="user-grid-grid">
+                            <a href="#" class="mugshotlink login-link login-link-interrupt">
+                                <img src="static/images/mugshot1.jpg" class="small-mugshot login-link login-link-interrupt">
+                            </a>
+                            <a href="#" class="mugshotlink login-link login-link-interrupt">
+                                <img src="static/images/mugshot2.jpg" class="small-mugshot login-link login-link-interrupt">
+                            </a>
+                        </div>
+                    </section>
+                </div>
+                <hr style="border: none; height: 1px; color: #e5e5e5; background-color: #e5e5e5;">
+                <div id="details-right-details" style="margin-bottom: 0px; margin-top: 15px;">
+                    <div class="calendar-icon activity-details-large-icon"></div>
+                    <div class="date-time-block">
+                        <div class="date-range"></div>
+                        <div class="day-range" style="text-transform: uppercase;">Tuesday – Saturday</div>
+                        <div class="time-range" style=""> 5:30pm – 10pm</div>
+                        <div class="day-range" style="text-transform: uppercase;">Sunday</div>
+                        <div class="time-range" style=" margin-bottom: 0px; "> 10am – 9:30pm</div>
+                    </div>
+                    <!-- Cross Bars -->
+                    <div class="horizontal-info-divider">
+                        <div class="vertical-info-divider"></div>
+                    </div> 
+                    <!-- Neighborhood -->
+                    <div class="neighborhood-container">
+                        <div class="map-pin-icon activity-details-large-icon" style="margin-top: 5px;"></div>
+                        <div class="neighborhood-name ellipsis" style="">{{ restaurant.city }}</div>
+                    </div>
+                    <!-- Cost -->
+                    <div class="cost-container" style="">
+                        <div class="cost-display" style="">
+                            {{ restaurant.price_symbol }}
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div id="details-location" class="module1 clear">
+                <div class="module1-internal">
+                    <div class="module1-title">Venue</div>
+                    <section id="details-right-info" class="module1-content clearfix">
+                        <heading>{{ restaurant.name }}</heading>
+                        <div>
+                            <div class="venue-link-container">
+                                <div class="venue-profile-icon activity-details-small-icon"></div>
+                                <a href="{{ restaurant.menu_url }}">Menu</a>
+                            </div>
+                            <div class="venue-link-container">
+                                <div class="link-icon activity-details-small-icon"></div>
+                                <a href="{{ restaurant.website_url }}">Website</a>
+                            </div>
+                            <div class="venue-link-container">
+                                <div class="opentable-icon activity-details-small-icon"></div>
+                                <a href="#">OpenTable</a>
+                            </div>
+                            <div class="venue-link-container">
+                                <div class="yelp-icon activity-details-small-icon"></div>
+                                <a href="{{ restaurant.yelp_url }}">Yelp</a>
+                            </div>
+                            <div class="venue-link-container">
+                                <div class="yelp-icon activity-details-small-icon"></div>
+                                <a href="{{ restaurant.zagat_url }}">Zagat</a>
+                            </div>
+
+                        </div>  
+                        <div class="venue-link-container">
+                            <div class="phone-icon activity-details-small-icon"></div>
+                            {{ restaurant.phone }}
+                        </div> 
+                    </section>
+                </div>
+                <a href="#" style="text-decoration: none;">
+                    <div id="map-address-container" style="width: 229px; height: 200px;">
+                        <div id="google-map-address-overlay" style="width: 209px;">
+                            {{ restaurant.address_1 }}
+                        </div>
+                        <img style="width: 229px; height: 200px;" src="[[RESTAURANT MAP URL]]">
+                    </div>
+                </a>
+            </div> 
+        </div>
+    </div>
+    <footer class="clear clearfix" style="margin-bottom: 185px;">
+    </footer>  
+</body>
+</html>
+
+
+
